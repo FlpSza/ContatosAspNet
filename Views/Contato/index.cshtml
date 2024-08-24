@@ -1,0 +1,55 @@
+@model IEnumerable<Projeto_MVC.Models.Contato>
+
+@{
+    ViewData["Title"] = "Listagem de Contatos";
+}
+
+<h2>Contatos</h2>
+
+<p>
+    <a asp-action="Criar"> Novo Contato</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Id) <!-- Corrigido para o primeiro item -->
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Nome) <!-- Corrigido para o primeiro item -->
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Telefone) <!-- Corrigido para o primeiro item -->
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Ativo) <!-- Corrigido para o primeiro item -->
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id) <!-- Corrigido -->
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome) <!-- Corrigido -->
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone) <!-- Corrigido -->
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ativo) <!-- Corrigido -->
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Deletar" asp-route-id="@item.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
