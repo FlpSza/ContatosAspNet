@@ -134,3 +134,4 @@ C:\Users\felli\OneDrive\Área de Trabalho\Projeto MVC\bin\Debug\net8.0\runtimes\
 C:\Users\felli\OneDrive\Área de Trabalho\Projeto MVC\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\felli\OneDrive\Área de Trabalho\Projeto MVC\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\felli\OneDrive\Área de Trabalho\Projeto MVC\obj\Debug\net8.0\Projeto .60FEEB6B.Up2Date
+C:\Users\felli\OneDrive\Área de Trabalho\Projeto MVC\obj\Debug\net8.0\Projeto MVC.sourcelink.json

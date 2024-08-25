@@ -46,13 +46,52 @@ namespace Projeto_MVC.Controllers
 
         [HttpPost]
         public ActionResult Editar(Contato contato){
-            if(ModelState.IsValid){
-                _context.Contatos.Add(contato);
-                _context.SaveChanges();
+            var contatoBanco = _context.Contatos.Find(contato.Id);
+
+            contatoBanco.Nome = contato.Nome;
+            contatoBanco.Telefone = contato.Telefone;
+            contatoBanco.Ativo = contato.Ativo;
+
+            _context.Contatos.Update(contatoBanco);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Detalhes(int Id)
+        {
+            var contato = _context.Contatos.Find(Id);
+
+            if(contato == null)
+            {
                 return RedirectToAction(nameof(Index));
             }
 
             return View(contato);
         }
+
+        public IActionResult Deletar(int Id)
+        {
+            var contato = _context.Contatos.Find(Id);
+
+            if(contato == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(contato);
+        }
+
+        [HttpPost]
+        public IActionResult Deletar(Contato contato)
+        {
+            var contatoBanco = _context.Contatos.Find(contato.Id);
+
+            _context.Contatos.Remove(contatoBanco);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
